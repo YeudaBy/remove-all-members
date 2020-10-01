@@ -31,8 +31,8 @@ members_count_kicks = 0
 def main(c,m):
     chat = m.chat
     global members_count_kicks
-    status_me = chat.get_member("me")
-    if status_me.status == "administrator":
+    status_me = chat.get_member(m.from_id)
+    if status_me.status in ["administrator","creator"]:
         try:
             members_count = str(chat.members_count)
             c.send_message(chat.id,TEXT_STARTED.format(members_count))
