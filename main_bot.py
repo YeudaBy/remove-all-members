@@ -1,3 +1,8 @@
+'''
+this code by yeuda by https://t.me/m100achuz
+pip install Pyrogram
+'''
+
 from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
