@@ -33,7 +33,7 @@ TEXT_PRIVATE = '''
 הרובוט נוצר ע"י [מקליד תמיד](tg://user?id=789248230). ניתן לפנות לכל בקשה או הערה, ואשתדל לעזור בשמחה.    
 '''
 
-
+status_admin = ["administrator", "creator"]
 members_count_kicks = 0
 
 
@@ -43,12 +43,12 @@ def main(c,m):
     global members_count_kicks
     status_member = chat.get_member(m.from_user.id)
     status_me = chat.get_member("me")
-    if status_me.status == "administrator" and status_member in ["administrator", "creator"]:
+    if status_me.status == "administrator" and status_member in status_admin:
         try:
             members_count = str(chat.members_count)
             c.send_message(chat.id,TEXT_STARTED.format(members_count))
             for member in c.iter_chat_members(chat.id):
-                if member.status in ["administrator","creator"]:
+                if member.status in status_admin:
                     pass
                 else:
                     chat.kick_member(member.user.id)
