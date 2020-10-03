@@ -10,9 +10,11 @@ from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
+#change this to your app_id and app_key from https://my.telegram.org/auth
 app_id = 000000
 app_key = '#########################'
+
+#change this to your Token from https://t.me/BotFhater
 token = "123456abcdefghijklmnopqrstzw"
 
 app = Client("remove", app_id, app_key, bot_token=token)
