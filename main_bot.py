@@ -1,6 +1,9 @@
 '''
 this code by yeuda by https://t.me/m100achuz
+
+
 pip install Pyrogram
+https://github.com/pyrogram/pyrogram.git
 '''
 
 from pyrogram import Client
@@ -36,8 +39,9 @@ members_count_kicks = 0
 def main(c,m):
     chat = m.chat
     global members_count_kicks
+    status_member = chat.get_member(m.from_user.id)
     status_me = chat.get_member("me")
-    if status_me.status == "administrator":
+    if status_me.status == "administrator" and status_member in ["administrator", "creator"]:
         try:
             members_count = str(chat.members_count)
             c.send_message(chat.id,TEXT_STARTED.format(members_count))
